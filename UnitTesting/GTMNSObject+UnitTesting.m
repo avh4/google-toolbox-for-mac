@@ -465,7 +465,7 @@ static NSString *gGTMUnitTestSaveToDirectory = nil;
   _GTMDevAssert(myBundle, @"Couldn't find bundle for class: %@ searching for file:%@.%@", 
                 NSStringFromClass(bundleClass), name, extension);
 #endif
-  NSBundle *myBundle = [NSBundle bundleWithPath:@"./"];
+  NSBundle *myBundle = [NSBundle bundleWithPath:@"./approvals/"];
   // System Version
   long major, minor, bugFix;
   [GTMSystemVersion getMajor:&major minor:&minor bugFix:&bugFix];
