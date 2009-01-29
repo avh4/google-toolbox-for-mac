@@ -112,6 +112,10 @@
 		8BEEA90D0DA7446300894774 /* GTMUnitTestingImage.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8BEEA90A0DA7446300894774 /* GTMUnitTestingImage.tiff */; };
 		8BEEA90E0DA7446300894774 /* GTMUnitTestingWindow.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8BEEA90B0DA7446300894774 /* GTMUnitTestingWindow.tiff */; };
 		8BEEA90F0DA7446300894774 /* GTMUnitTestingView.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8BEEA90C0DA7446300894774 /* GTMUnitTestingView.tiff */; };
+		B1B6F9990F32457B0010E01D /* GTMRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6F9970F32457B0010E01D /* GTMRenderer.h */; };
+		B1B6F99A0F32457B0010E01D /* GTMRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6F9980F32457B0010E01D /* GTMRenderer.m */; };
+		B1B6F9AB0F3249AE0010E01D /* GTMNSObject+UnitTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = F48FE29C0D198D36009257D2 /* GTMNSObject+UnitTesting.m */; };
+		B1B6F9AD0F3249C40010E01D /* GTMAppKit+UnitTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B55479B0DB3B7A50014CC1C /* GTMAppKit+UnitTesting.m */; };
 		F413908F0D75F63C00F72B31 /* GTMNSFileManager+Path.h in Headers */ = {isa = PBXBuildFile; fileRef = F413908C0D75F63C00F72B31 /* GTMNSFileManager+Path.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F41390900D75F63C00F72B31 /* GTMNSFileManager+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = F413908D0D75F63C00F72B31 /* GTMNSFileManager+Path.m */; };
 		F41390920D75F64D00F72B31 /* GTMNSFileManager+PathTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F413908E0D75F63C00F72B31 /* GTMNSFileManager+PathTest.m */; };
@@ -322,6 +326,8 @@
 		8BEEA90A0DA7446300894774 /* GTMUnitTestingImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = GTMUnitTestingImage.tiff; sourceTree = "<group>"; };
 		8BEEA90B0DA7446300894774 /* GTMUnitTestingWindow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = GTMUnitTestingWindow.tiff; sourceTree = "<group>"; };
 		8BEEA90C0DA7446300894774 /* GTMUnitTestingView.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = GTMUnitTestingView.tiff; sourceTree = "<group>"; };
+		B1B6F9970F32457B0010E01D /* GTMRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMRenderer.h; sourceTree = "<group>"; };
+		B1B6F9980F32457B0010E01D /* GTMRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMRenderer.m; sourceTree = "<group>"; };
 		F413908C0D75F63C00F72B31 /* GTMNSFileManager+Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSFileManager+Path.h"; sourceTree = "<group>"; };
 		F413908D0D75F63C00F72B31 /* GTMNSFileManager+Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSFileManager+Path.m"; sourceTree = "<group>"; };
 		F413908E0D75F63C00F72B31 /* GTMNSFileManager+PathTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSFileManager+PathTest.m"; sourceTree = "<group>"; };
@@ -722,6 +728,8 @@
 				8B7AD4AD0DABBFEE00B84F4A /* GTMUnitTestingBindingTest.m */,
 				8B45A2A20DA49C47001148C5 /* GTMUIUnitTestingHarness */,
 				F435E46C0DC8F23A0069CDE8 /* TestData */,
+				B1B6F9970F32457B0010E01D /* GTMRenderer.h */,
+				B1B6F9980F32457B0010E01D /* GTMRenderer.m */,
 			);
 			path = UnitTesting;
 			sourceTree = "<group>";
@@ -806,6 +814,7 @@
 				8BE281B10DEC7E930035B3F8 /* GTMNSAppleEventDescriptor+Handler.h in Headers */,
 				8BE281B20DEC7E930035B3F8 /* GTMNSAppleEventDescriptor+Foundation.h in Headers */,
 				8BE283730DED13AB0035B3F8 /* GTMFourCharCode.h in Headers */,
+				B1B6F9990F32457B0010E01D /* GTMRenderer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1162,6 +1171,9 @@
 				8B7DCBD30DFF16070017E983 /* GTMNSAppleEventDescriptor+Handler.m in Sources */,
 				8B7DCBD40DFF16070017E983 /* GTMNSAppleEventDescriptor+Foundation.m in Sources */,
 				8B7DCBE20DFF18720017E983 /* GTMDevLog.m in Sources */,
+				B1B6F99A0F32457B0010E01D /* GTMRenderer.m in Sources */,
+				B1B6F9AB0F3249AE0010E01D /* GTMNSObject+UnitTesting.m in Sources */,
+				B1B6F9AD0F3249C40010E01D /* GTMAppKit+UnitTesting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

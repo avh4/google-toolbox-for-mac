@@ -459,10 +459,13 @@ static NSString *gGTMUnitTestSaveToDirectory = nil;
 - (NSString *)gtm_pathForFileNamed:(NSString*)name 
                          extension:(NSString*)extension {
   NSString *thePath = nil;
+#if 0
   Class bundleClass = [GTMUnitTestingAdditionsBundleFinder class];
   NSBundle *myBundle = [NSBundle bundleForClass:bundleClass];
   _GTMDevAssert(myBundle, @"Couldn't find bundle for class: %@ searching for file:%@.%@", 
-            NSStringFromClass(bundleClass), name, extension);
+                NSStringFromClass(bundleClass), name, extension);
+#endif
+  NSBundle *myBundle = [NSBundle bundleWithPath:@"./"];
   // System Version
   long major, minor, bugFix;
   [GTMSystemVersion getMajor:&major minor:&minor bugFix:&bugFix];
