@@ -13,6 +13,6 @@
 
 }
 
-+ (BOOL)isImageOfObject:(id)obj matches:(NSString *)imgName;
++ (NSString *)isImageOfObject:(id)obj matches:(NSString *)imgName;
 
 @end

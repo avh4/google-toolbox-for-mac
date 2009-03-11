@@ -12,11 +12,17 @@
 
 @implementation GTMRenderer
 
-+ (BOOL)isImageOfObject:(id)obj matches:(NSString *)imgName
++ (NSString *)isImageOfObject:(id)obj matches:(NSString *)imgName
 {
   NSString *failString = nil;
   BOOL isGood = GTMIsObjectImageEqualToImageNamed(obj, imgName, &failString);
-  return isGood;
+  if (isGood)
+  {
+    return nil;
+  }
+  else {
+    return failString;
+  }
 }
 
 
