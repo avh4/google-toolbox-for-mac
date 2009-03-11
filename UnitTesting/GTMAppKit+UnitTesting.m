@@ -59,6 +59,47 @@ GTM_METHOD_CHECK(NSObject, gtm_unitTestEncodeState:);  // COV_NF_LINE
     [inCoder encodeObject:mainMenu forKey:@"MenuBar"];
   }
 }
+
+- (CGImageRef)gtm_createUnitTestImage {
+  // Create up a context
+  NSRect bounds = NSMakeRect(0, 0, 800, 600);
+  CGContextRef contextRef = [self gtm_createUnitTestBitmapContextOfSize:GTMNSSizeToCGSize(bounds.size)
+                                                                   data:NULL];
+  NSUInteger i, count = [[self windows] count];
+  NSGraphicsContext *bitmapContext = [NSGraphicsContext graphicsContextWithGraphicsPort:contextRef
+                                                                                flipped:NO];
+  _GTMDevAssert(bitmapContext, @"Couldn't create ns bitmap context");
+  CGContextSaveGState(contextRef);
+  CGContextSetShouldSmoothFonts(contextRef, false);
+  CGContextSetShouldAntialias(contextRef, false);
+  for (i = 0; i < count; i++) {
+    NSWindow *window = [[self windows] objectAtIndex:i];
+    if ([window isVisible]) {
+      NSView *view = [[window contentView] superview];
+      
+      CGContextRef windowCtx = [self gtm_createUnitTestBitmapContextOfSize:GTMNSSizeToCGSize([view bounds].size) data:NULL];
+      
+      CGContextSaveGState(windowCtx);
+      CGContextSetShouldSmoothFonts(windowCtx, false);
+      CGContextSetShouldAntialias(windowCtx, false);
+      
+      // Save our state and turn off font smoothing and antialias.
+      NSGraphicsContext *windowContext = [NSGraphicsContext graphicsContextWithGraphicsPort:windowCtx flipped:NO];
+      [view displayRectIgnoringOpacity:[view frame] inContext:windowContext];
+      
+      CGImageRef windowImage = CGBitmapContextCreateImage(windowCtx);
+      CGContextDrawImage(contextRef, GTMNSRectToCGRect(window.frame), windowImage);
+      CGImageRelease(windowImage);
+      
+      CGContextRelease(windowCtx);
+    }    
+  }
+  
+  CGImageRef image = CGBitmapContextCreateImage(contextRef);
+  CFRelease(contextRef);
+  return image;
+}
+
 @end
 
 @implementation NSWindow (GMUnitTestingAdditions) 
